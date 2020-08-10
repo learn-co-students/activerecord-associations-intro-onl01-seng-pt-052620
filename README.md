@@ -10,8 +10,10 @@
 ## What are Active Record Associations?
 
 We already know that we can build our classes such that they associate with one
-another. We also know that it takes a lot of code to do it. Active Record
-associations allow us to associate models *and their analogous database tables*
+another. 
+We also know that it takes a lot of code to do it. 
+
+Active Record associations allow us to associate models *and their analogous database tables*
 without having to write tons of code.
 
 Additionally, Active Record associations make actually working with our
@@ -32,8 +34,8 @@ models:
 * has_one :through
 * has_and_belongs_to_many
 
-We don't need to worry about most of these right now. We'll concern ourselves
-with relationships that should sound familiar:
+We don't need to worry about most of these right now. 
+We'll concern ourselves with relationships that should sound familiar:
 
 * belongs to
 * has many
@@ -41,8 +43,9 @@ with relationships that should sound familiar:
 
 In order to implement these relationships, we will need to do two things:
 
-1. Write a migration that creates tables with associations. For example, if a
-   cat belongs to an owner, the cats table should have an `owner_id` column.
+1. Write a migration that creates tables with associations. 
+Example, if a cat belongs to an owner, the cats table should have an `owner_id` column.
+
 2. Use Active Record macros in the models.
 
 We'll go through both of these steps together, using our Playlister domain model.
@@ -53,9 +56,10 @@ In this walk-through, we'll be building out a domain model for our fictitious
 music playing app, Playlister. This app will catalog songs and their
 associated artists and genres.  
 
-We'll have three models: Artists, Songs, and Genres. By writing a few migrations
-and making use of the appropriate Active Record macros (more on that later), we
-will be able to:
+We'll have three models: Artists, Songs, and Genres. 
+
+By writing a few migrations and making use of the appropriate Active Record macros (more on that later), 
+we will be able to:
 
 * ask an Artist about its songs and genres
 * ask a Song about its genre and its artist
@@ -97,6 +101,8 @@ Let's write the migration that will make this happen.
 * Write the following migration:
 
 ```ruby
+
+
 class CreateSongs < ActiveRecord::Migration[4.2]
   def change
     create_table :songs do |t|
